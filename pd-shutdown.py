@@ -21,7 +21,7 @@ GPIO.setup(33,GPIO.IN)   # Power MCU to Pi on power button
 
 # In practice detecting power button press is unfortunately not reliable, message if detected
 if GPIO.input(33):
-	# Power Key was already pressed - shut the system down immediately
+	# Power Key was already pressed
 	print("pidesktop: shutdown script initated from power button")
 else:
 	# shutdown or reboot not related to power key
