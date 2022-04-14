@@ -1,6 +1,6 @@
 #!/user/bin/env python
 
-# pd-shutdown.py - oneshot service so do your thing and exit
+# pd-shutdown.py - oneshot script so do your thing and exit
 #
 # We are in shutdown processing either because shutdown or reboot is running or because
 # the power button was pressed.  If we're here because the power button was pressed then 
@@ -22,19 +22,19 @@ GPIO.setup(33,GPIO.IN)   # Power MCU to Pi on power button
 # In practice detecting power button press is unfortunately not reliable, message if detected
 if GPIO.input(33):
 	# Power Key was already pressed - shut the system down immediately
-	print("pidesktop: shutdown service initated from power button")
+	print("pidesktop: shutdown script initated from power button")
 else:
 	# shutdown or reboot not related to power key
 	# GPIO.output(31,GPIO.HIGH) #  tell power MCU and exit immediately
-	print("pidesktop: shutdown service active")
+	print("pidesktop: shutdown script active")
 
 #  unmount SD card to clean up logs
-print("pidesktop: shutdown service unmounting SD card")
+print("pidesktop: shutdown script unmounting SD card")
 os.system("umount /dev/mmcblk0p1")
 
 # stash the current system clock setting into the RTC hardware
-print("pidesktop: shutdown service saving system clock to hardware clock")
+print("pidesktop: shutdown script saving system clock to hardware clock")
 os.system("/sbin/hwclock --systohc")
 
 # we're done
-print("pidesktop: shutdown service completed")
+print("pidesktop: shutdown script completed")

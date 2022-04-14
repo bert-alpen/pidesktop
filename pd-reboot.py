@@ -1,6 +1,6 @@
 #!/user/bin/env python
 
-# pd-reboot.py - oneshot service so do your thing and exit
+# pd-reboot.py - oneshot script so do your thing and exit
 #
 # We are in reboot processing either because reboot is running. 
 #
@@ -15,11 +15,11 @@ GPIO.setup(33,GPIO.IN)   # Power MCU to Pi on power button
 # In practice detecting power button press is unfortunately not reliable, message if detected
 if GPIO.input(33):
 	# Power Key was already pressed - shut the system down immediately
-	print("pidesktop: reboot service unexpected power button detected")
+	print("pidesktop: reboot script unexpected power button detected")
 else:
 	# reboot initiated do whatever is needed on reboot
 	# GPIO.output(31,GPIO.HIGH) #  tell power MCU and exit immediately
-	print("pidesktop: reboot service active")
+	print("pidesktop: reboot script active")
 
 # we're done
-print("pidesktop: reboot service completed")
+print("pidesktop: reboot script completed")

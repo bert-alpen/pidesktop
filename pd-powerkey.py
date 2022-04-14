@@ -6,7 +6,7 @@
 import RPi.GPIO as GPIO
 import time,os,sys
 
-print("pidesktop: power button service initializing")
+print("pidesktop: power button script initializing")
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
