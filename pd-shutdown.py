@@ -5,7 +5,7 @@
 # We are in shutdown processing either because shutdown or reboot is running or because
 # the power button was pressed.  If we're here because the power button was pressed then 
 # Power MCU is already in Waiting OFF state and will turn off immediately if it sees 
-# pin 31 go high so avoid that!  If power button has not been pressed we should inform power MCU 
+# pin 31 go high, so don't do that. If power button has not been pressed we should inform power MCU 
 # shutdown/reboot is taking place so the shutdown timer can start.
 #
 # Note: The timer will reset when the Pi powers off so the only purpose REALLY for doing
@@ -25,8 +25,8 @@ if GPIO.input(33):
 	print("pidesktop: shutdown script initated from power button")
 else:
 	# shutdown or reboot not related to power key
-	# GPIO.output(31,GPIO.HIGH) #  tell power MCU and exit immediately
 	print("pidesktop: shutdown script active")
+	GPIO.output(31,GPIO.HIGH) #  inform power MCU that shutdown process is running
 
 #  unmount SD card to clean up logs
 print("pidesktop: shutdown script unmounting SD card")
