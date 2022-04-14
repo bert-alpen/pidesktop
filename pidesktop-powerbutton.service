@@ -4,7 +4,7 @@ After=local-fs.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python -u /usr/share/pidesktop/python/pd-powerkey.py
+ExecStart=/usr/bin/python -u /usr/share/pidesktop/pd-powerkey.py
 
 [Install]
 WantedBy=multi-user.target
