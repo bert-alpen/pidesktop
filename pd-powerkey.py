@@ -13,9 +13,12 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(31,GPIO.OUT)  # Pi to PCU - start/stop shutdown timer
 GPIO.setup(33,GPIO.IN)   # PCU to Pi - detect power key pressed
 
+print("pidesktop: Set GPIO 31 Low")
 GPIO.output(31,GPIO.LOW)  # tell PCU we are alive
+print("pidesktop: Set GPIO 31 High")
 GPIO.output(31,GPIO.HIGH) # cause blink by starting shutdown timer
 time.sleep(0.5)
+print("pidesktop: Set GPIO 31 Low")
 GPIO.output(31,GPIO.LOW)  # clear timer we really are alive
 
 # callback function
